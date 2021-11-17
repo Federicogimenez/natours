@@ -1,0 +1,31 @@
+@mixin clearfix {
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// MEDIA QUERIS MANAGER
+//     BREAKPOINTS
+//     -phone max-width 600px
+//     -table-port max-width 900px
+//     -table-land max-width 1200px
+//     -normal-rendering
+//     -big-desktop min-width 1800px+
+// 1em=16px
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) {@content};
+    }
+    @if $breakpoint == table-port {
+        @media only screen and (max-width: 56.25em) {@content};
+    }
+    @if $breakpoint == table-land {
+        @media only screen and (max-width: 75em) {@content};
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) {@content};
+    }
+}

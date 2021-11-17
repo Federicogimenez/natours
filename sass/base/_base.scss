@@ -1,0 +1,36 @@
+html{
+    font-size: 62.5%;
+
+    @include respond(big-desktop){
+      font-size: 87.5%; //14px
+    }
+    @include respond(table-land){
+      font-size: 56.25%; //9px
+    }
+    @include respond(table-port){
+      font-size: 50%; //8px
+    }
+    @include respond(phone){
+      font-size: 37.5%; //5px
+    }
+}
+*,
+*::after,
+*::before{
+   margin: 0;
+   padding: 0;
+   box-sizing: inherit;
+}
+body{
+   box-sizing: border-box;
+   padding: 3rem;
+   
+   @include respond(table-land){
+      padding: 0;
+    }
+}
+::selection{
+  background-color: $color-primary;
+  color: $color-white;
+
+}

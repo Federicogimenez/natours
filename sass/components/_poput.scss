@@ -1,0 +1,79 @@
+.poput{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba($color-black, .4);
+    z-index: 3000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s;
+
+    @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)){
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    &__content{
+        height: 50rem;
+        width: 75%;
+        background-color: $color-white;
+        border-radius: 3px;
+        box-shadow: 0 2rem 4rem rgba($color-black, .4);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        display: table;
+        overflow: hidden;
+        transition: all .5s .2s;
+    }
+    &__left{
+        width: 33.33333333%;
+        display: table-cell;
+    }
+    &__right{
+        width: 66.666666667%;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 3rem 5rem;
+    }
+    &__img{
+        display: block;
+        width: 100%;
+        height: 50%;
+    }
+    &__text{
+        font-size: 1.4;
+        margin-bottom: 4rem;
+        column-count: 2;
+        column-gap: 4rem;
+        column-rule: 1px solid $color-gray-dark;
+        hyphens: auto;
+    }
+    &:target{
+        visibility: visible;
+        opacity: 1;
+    }
+    &:target &__content{
+        transform: translate(-50%, -50%) scale(1);
+    }
+    &__close{
+        &:link,
+        &:visited{
+            font-size: 3rem;
+            color: $color-gray-dark;
+            text-decoration: none;
+            position: absolute;
+            right: 2.5rem;
+            top: 2.5rem;
+            display: inline-block;
+            line-height: 1;
+        } 
+        &:hover{
+            color: $color-primary;
+        }
+    }
+
+}
